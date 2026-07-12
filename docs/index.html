@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dreamy Land Studio — ระบบผลิตคอนเทนต์การ์ตูนเด็ก</title>
+<meta name="description" content="แดชบอร์ดระบบผลิตคอนเทนต์การ์ตูนเพื่อพัฒนาเด็ก ดินแดนดรีมมี่ — ตัวละคร โซน ตอน เพลง ปฏิทิน และเครื่องมือผลิต">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌈</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600&family=Mali:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ══ Sidebar ══ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="logo">
+      <span class="logo-icon">🌈</span>
+      <div>
+        <div class="logo-name">ดินแดนดรีมมี่</div>
+        <div class="logo-sub">Dreamy Land Studio</div>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav">
+      <button class="nav-item active" data-tab="home"><span>🏠</span>ภาพรวม</button>
+      <button class="nav-item" data-tab="episodes"><span>🎬</span>ตอนทั้งหมด</button>
+      <button class="nav-item" data-tab="characters"><span>🧸</span>ตัวละคร</button>
+      <button class="nav-item" data-tab="zones"><span>🗺️</span>โลก 9 โซน</button>
+      <button class="nav-item" data-tab="songs"><span>🎵</span>เพลง</button>
+      <button class="nav-item" data-tab="random"><span>🎲</span>สุ่มตอนใหม่</button>
+      <button class="nav-item" data-tab="calendar"><span>📅</span>ปฏิทิน</button>
+      <button class="nav-item" data-tab="qc"><span>✅</span>QC Checklist</button>
+      <button class="nav-item" data-tab="guide"><span>🛠️</span>คู่มือผลิต</button>
+      <button class="nav-item" data-tab="prompts"><span>📋</span>Prompt กลาง</button>
+    </nav>
+
+    <a class="repo-link" id="repoLink" target="_blank" rel="noopener">
+      <span>📦</span> เปิด Repository
+    </a>
+  </aside>
+
+  <!-- ══ Main ══ -->
+  <main class="main">
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" aria-label="เมนู">☰</button>
+      <div class="search-wrap">
+        <input type="search" id="searchBox" placeholder="🔍 ค้นหา ตอน / ตัวละคร / เพลง / โซน..." autocomplete="off">
+        <div class="search-results" id="searchResults" hidden></div>
+      </div>
+      <button class="theme-btn" id="themeBtn" aria-label="สลับโหมดมืด/สว่าง">🌙</button>
+    </header>
+
+    <div class="content" id="content">
+      <section class="tab" id="tab-home"></section>
+      <section class="tab" id="tab-episodes" hidden></section>
+      <section class="tab" id="tab-characters" hidden></section>
+      <section class="tab" id="tab-zones" hidden></section>
+      <section class="tab" id="tab-songs" hidden></section>
+      <section class="tab" id="tab-random" hidden></section>
+      <section class="tab" id="tab-calendar" hidden></section>
+      <section class="tab" id="tab-qc" hidden></section>
+      <section class="tab" id="tab-guide" hidden></section>
+      <section class="tab" id="tab-prompts" hidden></section>
+    </div>
+
+    <footer class="footer">
+      🌈 ดินแดนดรีมมี่ — ระบบผลิตคอนเทนต์การ์ตูนเพื่อพัฒนาเด็ก 2-10 ปี ·
+      <a id="footRepo" target="_blank" rel="noopener">GitHub</a>
+    </footer>
+  </main>
+</div>
+
+<!-- ══ Modal ══ -->
+<div class="modal-backdrop" id="modalBackdrop" hidden>
+  <div class="modal" role="dialog" aria-modal="true">
+    <button class="modal-close" id="modalClose" aria-label="ปิด">✕</button>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
