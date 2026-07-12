@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(gh --version)",
+      "PowerShell(gh auth status)",
+      "PowerShell(git config --global user.name)",
+      "PowerShell(git config --global user.email)",
+      "PowerShell(git -C \"C:\\\\Claude\\\\Ai Video\" init -b main)"
+    ]
+  }
+}
