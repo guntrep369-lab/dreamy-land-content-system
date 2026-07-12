@@ -338,6 +338,29 @@ happiness vibe, sing-along chorus about sharing, clean bright mix, 2 minutes
 
 ---
 
+## 🛠️ Checklist ลงมือผลิต EP001 (ทำตามคู่มือไฟล์ 18 ทีละขั้น)
+
+> วิธีละเอียดของแต่ละขั้น (เข้าเว็บไหน กดอะไร ตั้งค่าอะไร) อยู่ใน [system/18-production-guide.md](../system/18-production-guide.md)
+
+- [ ] **STEP 0** สร้างโฟลเดอร์ `EP001/` พร้อมโฟลเดอร์ย่อย 1-voice ถึง 6-thumbnail
+- [ ] **STEP 1 — ElevenLabs** (ครั้งแรก: สร้าง Voice ดาว/โมจิ/ลุงตูมตาม/Narrator/**น้องจี๊ด** จากไฟล์ 11 แล้วจด Voice ID)
+  - [ ] Generate เสียง **27 บรรทัด** ตามตารางส่วนที่ 8 → ฟังตรวจ → เข้า `approved/`
+  - [ ] จดความยาวจริงของทุกไฟล์กลับลงคอลัมน์ Dur ใน Storyboard
+- [ ] **STEP 2 — Suno**
+  - [ ] เพลง "แบ่งกันอร่อยกว่า" เต็ม (Custom mode: วางเนื้อ + Style prompt ส่วนที่ 3)
+  - [ ] BGM 4 mood: เปิดเรื่องสดใส / สืบสวนน่ารัก (pizzicato) / อบอุ่นฉลอง / ปิดท้ายอบอุ่น — `instrumental only, loopable`
+- [ ] **STEP 3 — Midjourney** (ครั้งแรก: สร้างภาพต้นแบบ 4 ตัวละคร + น้องจี๊ด → เก็บ URL ใส่ `--cref`)
+  - [ ] Generate **25 ภาพ** (ช็อต 1-22 + montage 18a/b/c) — แทน `{DAO}` `{CONS}` ด้วยค่าจริงก่อนวาง, seed = `20260712`
+  - [ ] ภาพใช้ซ้ำ: BG ต้นดรีมมี่ (ช็อต 1→20,21,22) และหน้าโพรง (10→17) ไม่ต้องทำใหม่
+- [ ] **STEP 4 — Runway** Gen-3 image-to-video **22 ช็อต** ตามตารางส่วนที่ 7
+  - [ ] ช็อต Lip Sync = Y จำนวน 17 ช็อต → ทำ Act-One เฉพาะช็อต Close-up/Medium (2,7,13,16,17,21 สำคัญสุด)
+- [ ] **STEP 5 — CapCut** เรียง 22 ช็อต → เสียง+เว้น silence 3 วิ (บรรทัด 9, 26) → เพลงแทรกช็อต 18 → BGM -18dB → SFX ตามตาราง → Auto captions ไทยตรวจทุกคำ → Export `EP001_final.mp4`
+- [ ] **STEP 6 — Thumbnail** Ideogram ด้วย Prompt ส่วนที่ 9 (ถ้าตัวหนังสือไทยเพี้ยน → เติมข้อความใน Canva) → ทดสอบย่อเล็กแล้วยังอ่านออก
+- [ ] **STEP 7 — YouTube Studio** Title/Description/Tags ส่วนที่ 10 → **Made for Kids ✅** → Playlist "นิทานคุณธรรม" → ตั้งเวลา พฤหัส 17:00 → โพสต์ Caption ส่วนที่ 11
+- [ ] อัปเดตสถานะ + ลิงก์ใน `database/episode-database.md`
+
+---
+
 ## ✅ QC (หมวด A-C ไฟล์ 15)
 
 | ข้อ | ผล | หมายเหตุ |
