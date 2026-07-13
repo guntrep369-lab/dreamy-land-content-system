@@ -30,6 +30,8 @@
 | 16 | [system/16-new-episode-generator.md](system/16-new-episode-generator.md) | คำสั่ง "สร้างตอนใหม่" → ครบ 12 ส่วนอัตโนมัติ |
 | 17 | [system/17-database-templates.md](system/17-database-templates.md) | ฐานข้อมูล 9 ตาราง (กันซ้ำ + เก็บทรัพย์สิน) |
 | 18 | [system/18-production-guide.md](system/18-production-guide.md) | คู่มือลงมือผลิตทีละขั้น: นำ Prompt ไปใช้ใน AI แต่ละตัว (เว็บไหน กดอะไร เซฟชื่ออะไร) |
+| 19 | [system/19-brand-sound.md](system/19-brand-sound.md) | Brand Sound: เพลงธีมช่อง + เพลงเปิดประตู 9 สี + Jingle ปิด + Signature SFX (ผลิตครั้งเดียว ใช้ทุกตอน) |
+| 20 | [system/20-shorts-system.md](system/20-shorts-system.md) | ระบบ Shorts/TikTok: สูตร 3 ชิ้นต่อตอน (เพลงฮุก/Interaction/มุก-ซึ้ง) + ตารางลง 6 วัน/สัปดาห์ |
 | — | `database/` | ไฟล์ฐานข้อมูลจริง เริ่มกรอกได้ทันที |
 | — | `episodes/` | แพ็กเกจตอนที่สร้างแล้ว (ตอนละ 1 ไฟล์ ครบ 12 ส่วน + Checklist ผลิต) |
 
