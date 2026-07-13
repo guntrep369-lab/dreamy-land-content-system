@@ -432,4 +432,6 @@ const COMMON_PROMPTS = [
   { name:"Consistency (Midjourney)", text:"--cref [URL ภาพตัวละครต้นแบบ] --cw 100 --seed [เลขประจำตอน] --ar 16:9" },
   { name:"ประโยคกันภาพเพี้ยน (ต่อท้าย Motion Prompt)", text:"maintain exact character design from input image, no morphing, no new elements, soft bouncy cartoon physics" },
   { name:"BGM ไม่มีเนื้อร้อง (Suno)", text:"instrumental only, [mood], [BPM] BPM, loopable, no vocals, clean children-friendly mix" },
+  { name:"🎵 เพลงธีมช่อง — Suno Style (คู่กับเนื้อใน brand-sound/PRODUCTION-RUN.md)", text:"Warm inviting Thai children's channel theme song, 112 BPM, A major, ukulele + glockenspiel + light drums + kids choir singing along, adventurous but cozy, memorable simple 4-note hook motif on the words \"Dreamy Land\", clean bright mix, short 45 seconds, ends with sparkle chime" },
+  { name:"🚪 เพลงเปิดประตู 9 สี — Suno Style (ใช้ซ้ำทุกบาน เปลี่ยนแค่ Lyrics)", text:"Short magical 15-second Thai children's door-opening jingle, 112 BPM, A major, same cozy motif family as a ukulele channel theme, music box + chimes + three playful knock sounds, gentle child-friendly female voice, a clear 2-second silent gap after the question line for kids to answer, resolves with sparkling whoosh door-opening sound, very short" },
 ];
