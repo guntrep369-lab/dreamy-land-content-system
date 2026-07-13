@@ -71,7 +71,8 @@ const statusPills = ep => {
 function renderHome(){
   const vocabCount = EPISODES.reduce((n, e) => n + e.vocab.length, 0);
   const slots = [
-    ["อังคาร 17:00", "EP003"], ["พฤหัส 17:00", "EP001"], ["เสาร์ 09:00", "EP002"],
+    ["สัปดาห์ 1 · อังคาร 17:00", "EP003"], ["สัปดาห์ 1 · พฤหัส 17:00", "EP001"],
+    ["สัปดาห์ 1 · เสาร์ 09:00", "EP002"], ["สัปดาห์ 2 · อังคาร 17:00", "EP004"],
   ];
   $("#tab-home").innerHTML = `
     <div class="hero">
@@ -95,7 +96,7 @@ function renderHome(){
       <div class="stat"><div class="n">${vocabCount}</div><div class="l">คำศัพท์ที่สอนแล้ว</div></div>
     </div>
 
-    <div class="section-title">📅 ตารางออกอากาศสัปดาห์ที่ 1 <span class="chip">ธีมเดือน ก.ค. — อวกาศ ความฝัน 🚀</span></div>
+    <div class="section-title">📅 ตารางออกอากาศ <span class="chip">ธีมเดือน ก.ค. — อวกาศ ความฝัน 🚀</span></div>
     <div class="week-strip">
       ${slots.map(([day, id]) => {
         const ep = EPISODES.find(e => e.id === id);
