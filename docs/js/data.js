@@ -453,6 +453,50 @@ const GUIDE_STEPS = [
     detail:"Title/Description/Tags จากไฟล์ตอน → Made for Kids ✅ (COPPA — ห้ามลืม!) → Playlist + End screen → Schedule: อังคาร/พฤหัส 17:00, เสาร์ 09:00 → โพสต์ Caption โปรโมต → อัปเดต database" },
 ];
 
+/* ── ระบบเติบโต (ไฟล์ 23-24) ─────────────────────────────── */
+const GROWTH_STAGES = [
+  { n:"0", name:"เปิดตัว", goal:"0 → 100 subs", emoji:"🚀", current:true,
+    focus:"ลงสม่ำเสมอ 3 คลิป/สัปดาห์ · SEO ให้คนค้นเจอ · หา 1 ฟอร์แมตที่เวิร์ก",
+    avoid:"อย่าลงทุนอุปกรณ์แพง · อย่าทำหลายฟอร์แมตพร้อมกัน" },
+  { n:"1", name:"รากฐาน", goal:"100 → 1,000 subs", emoji:"🌱", current:false,
+    focus:"เครื่อง Shorts เต็มสูบ · หา 'ตอนพุ่ง' แล้วทำแนวนั้นเพิ่ม",
+    avoid:"อย่าไล่ตามทุกเทรนด์" },
+  { n:"2", name:"ติดลม", goal:"1K subs + 4K ชม. → เปิดหารายได้", emoji:"💫", current:false,
+    focus:"Compilation ยาว (watch time) · เริ่มซีรีส์ · คงคุณภาพ",
+    avoid:"อย่าลดความถี่" },
+  { n:"3", name:"เติบโต", goal:"1K → 10K subs", emoji:"📈", current:false,
+    focus:"ดับเบิลดาวน์ตอนที่เวิร์ก · เพลย์ลิสต์/End screen ดันดูต่อ · ตัวละครฮิตออกบ่อย",
+    avoid:"—" },
+  { n:"4", name:"ขยายสเกล", goal:"10K+ subs", emoji:"🌍", current:false,
+    focus:"เวอร์ชันภาษาอังกฤษ (ภาพเดิม เปลี่ยนเสียง) · เพิ่มทีม · ต่อยอดสินค้า",
+    avoid:"—" },
+];
+const LAUNCH_CHECKLIST = [
+  "สร้างช่อง + ยืนยันอีเมล + ตั้ง @Handle (@DreamyLandKids)",
+  "Avatar + Banner + สีแบรนด์ + Watermark",
+  "About (ไทย+อังกฤษ) + ลิงก์ติดต่อ",
+  "สร้างเพลย์ลิสต์ 10 รายการ",
+  "ตั้ง Upload Defaults (Made for Kids + Education + ไทย)",
+  "ตรวจลิขสิทธิ์: อัปเกรดเป็นแพ็กเกจเชิงพาณิชย์ของทุก AI ที่ใช้",
+  "ค้นเครื่องหมายการค้าชื่อช่อง/ตัวละคร ผ่าน",
+  "Brand Sound พร้อม (ไฟล์ 19)",
+  "มีคลิปสำรอง 3-5 ตอนก่อนเปิดตัว",
+  "ทดสอบเปิดคลิปบนทีวี/แท็บเล็ต/มือถือ",
+  "ตั้งค่าความปลอดภัยบัญชี (2FA)",
+];
+const METRIC_FIXES = [
+  { m:"Impressions ต่ำ", sig:"คนไม่เห็นคลิป", fix:"SEO อ่อน — ปรับ Title/Tags ตรงคำค้น + ลงคลิปสม่ำเสมอต่อ (อัลกอริทึมยังไม่รู้จักช่อง)" },
+  { m:"CTR ต่ำ (<4%)", sig:"เห็นแต่ไม่กด", fix:"Thumbnail/Title ไม่ดึง — หน้าตัวละครใหญ่ขึ้น อารมณ์ชัด ข้อความน้อยลง แล้วดู 48 ชม." },
+  { m:"Retention ต่ำ (<50%)", sig:"กดแล้วออกเร็ว", fix:"ดูกราฟหาจุดคนออก — ดิ่ง 15 วิแรก=Hook ช้า · ดิ่งกลาง=จังหวะยาวไป · ดิ่งท้าย=ปกติ" },
+  { m:"Returning ไม่โต", sig:"ดูครั้งเดียวไม่กลับ", fix:"ทำซีรีส์ + คงตัวละคร/ฟอร์แมต + End screen ชวนดูตอนต่อ" },
+];
+const REVENUE = [
+  ["โฆษณา YouTube (จำกัด)", "1K subs + 4K ชม./ปี", "RPM ต่ำแต่ passive"],
+  ["สปอนเซอร์แบรนด์เด็ก", "~10K+ subs", "แบรนด์ที่เหมาะเด็กจริง โปร่งใส"],
+  ["ต่อยอดสินค้า", "มีฐานแฟน", "นิทานเล่มจริง · เพลง Spotify · ของเล่น"],
+  ["ขายสื่อการสอน", "ทันที", "ชุดเพลง/นิทานให้ รร.อนุบาล"],
+];
+
 /* ── Prompt กลางที่ใช้บ่อย ───────────────────────────────── */
 const COMMON_PROMPTS = [
   { name:"Style Prompt มาตรฐานช่อง (3D)", text:"3D Pixar animation style, chibi proportions, big expressive eyes, soft rounded shapes, vibrant saturated colors, kid-friendly, high detail render, 16:9" },

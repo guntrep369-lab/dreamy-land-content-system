@@ -34,6 +34,8 @@
 | 20 | [system/20-shorts-system.md](system/20-shorts-system.md) | ระบบ Shorts/TikTok: สูตร 3 ชิ้นต่อตอน (เพลงฮุก/Interaction/มุก-ซึ้ง) + ตารางลง 6 วัน/สัปดาห์ |
 | 21 | [system/21-curriculum-map.md](system/21-curriculum-map.md) | แผนที่หลักสูตร 9 เป้าหมายพัฒนาการ + บันไดทักษะต่อวัย + Coverage Matrix + กฎสมดุล (แสดงผลในเว็บหน้า "พัฒนาการ") |
 | 22 | [system/22-series-planning.md](system/22-series-planning.md) | ระบบวางแผนซีรีส์ 4 ตอน (Mini-Arc) + Template + ไอเดียซีรีส์ตั้งต้น |
+| 23 | [system/23-channel-launch-kit.md](system/23-channel-launch-kit.md) | ชุดเปิดช่อง: อัตลักษณ์ + About + โครงสร้างช่อง + กฎหมาย/COPPA/ลิขสิทธิ์ AI + Pre-launch Checklist |
+| 24 | [system/24-growth-analytics.md](system/24-growth-analytics.md) | Roadmap เติบโต 5 ระยะ + Decision Tree แก้เมื่อคลิปไม่ปัง + การหารายได้เด็กปลอดภัย + งบเครื่องมือ |
 | — | `database/` | ไฟล์ฐานข้อมูลจริง เริ่มกรอกได้ทันที |
 | — | `episodes/` | แพ็กเกจตอนที่สร้างแล้ว (ตอนละ 1 ไฟล์ ครบ 12 ส่วน + Checklist ผลิต) |
 

@@ -506,6 +506,59 @@ function renderCalendar(){
     </div>`;
 }
 
+/* ═══ TAB: GROWTH ═════════════════════════════════════════ */
+function renderGrowth(){
+  const done = LAUNCH_CHECKLIST.filter((_, i) => store.get(`launch_${i}`, false)).length;
+  const pct = Math.round(done / LAUNCH_CHECKLIST.length * 100);
+  $("#tab-growth").innerHTML = `
+    <div class="page-head"><h1>🚀 เติบโต — Roadmap & Analytics</h1><p>เปิดช่องให้ถูก แล้วโตด้วยข้อมูล — อ้างอิง system/23 (ชุดเปิดช่อง) + system/24 (เติบโต & วิเคราะห์)</p></div>
+
+    <div class="section-title">🗺️ Roadmap การเติบโต 5 ระยะ</div>
+    <div class="stage-track">
+      ${GROWTH_STAGES.map((s, i) => `
+        <div class="stage ${s.current ? "now" : ""}">
+          <div class="stage-top"><span class="stage-emoji">${s.emoji}</span><span class="stage-n">ระยะ ${s.n}</span>${s.current ? '<span class="now-tag" style="position:static">อยู่ตรงนี้</span>' : ""}</div>
+          <div class="stage-name">${esc(s.name)}</div>
+          <div class="stage-goal">${esc(s.goal)}</div>
+          <div class="stage-focus"><b>โฟกัส:</b> ${esc(s.focus)}</div>
+          ${s.avoid !== "—" ? `<div class="stage-avoid">⚠️ ${esc(s.avoid)}</div>` : ""}
+        </div>`).join("")}
+    </div>
+
+    <div class="section-title">📋 Checklist เปิดช่อง (ก่อน EP001 ออนไลน์)</div>
+    <div class="card" style="margin-bottom:8px">${progressBar(pct)}
+      <p style="font-size:12.5px;color:var(--muted);margin-top:6px">${done}/${LAUNCH_CHECKLIST.length} ${pct === 100 ? "— 🎉 พร้อมเปิดช่อง!" : ""}</p>
+    </div>
+    <div class="card">
+      ${LAUNCH_CHECKLIST.map((item, i) => {
+        const on = store.get(`launch_${i}`, false);
+        return `<label class="check-item ${on ? "checked" : ""}">
+          <input type="checkbox" data-launch="${i}" ${on ? "checked" : ""}><span>${esc(item)}</span></label>`;
+      }).join("")}
+    </div>
+
+    <div class="section-title">🔧 เมื่อคลิปไม่ปัง — แก้ตาม metric</div>
+    <div class="grid g2">
+      ${METRIC_FIXES.map(f => `
+        <div class="card" style="border-left:4px solid var(--warn)">
+          <b style="font-size:14.5px">${esc(f.m)}</b>
+          <div style="font-size:12px;color:var(--muted);margin:2px 0 8px">"${esc(f.sig)}"</div>
+          <div style="font-size:13.5px;color:var(--ink-2)">💡 ${esc(f.fix)}</div>
+        </div>`).join("")}
+    </div>
+
+    <div class="section-title">💰 แหล่งรายได้ (แบบเด็กปลอดภัย)</div>
+    <p style="font-size:12.5px;color:var(--muted);margin:-6px 0 12px">คลิป Made for Kids ปิดโฆษณาเฉพาะบุคคล/เมมเบอร์ชิพ → ต้องมีหลายแหล่งรายได้</p>
+    <div class="tbl-wrap" style="margin-bottom:22px">
+      <table class="tbl"><thead><tr><th>แหล่งรายได้</th><th>เริ่มได้เมื่อ</th><th>หมายเหตุ</th></tr></thead>
+        <tbody>${REVENUE.map(r => `<tr><td><b style="font-weight:500">${esc(r[0])}</b></td><td>${esc(r[1])}</td><td style="color:var(--ink-2)">${esc(r[2])}</td></tr>`).join("")}</tbody>
+      </table>
+    </div>
+    <div class="card" style="font-size:13px;color:var(--ink-2)">
+      💵 <b style="color:var(--ink);font-weight:500">งบเครื่องมือโดยประมาณ:</b> ~$80-120/เดือน (Midjourney + Runway + Suno + ElevenLabs + CapCut/Canva) สำหรับผลิต ~12 คลิป/เดือน = ~$7-10/คลิป · ดูรายละเอียดในไฟล์ 24
+    </div>`;
+}
+
 /* ═══ TAB: QC ═════════════════════════════════════════════ */
 let qcEp = EPISODES[0].id;
 function renderQC(){
@@ -593,7 +646,7 @@ const SEARCH_INDEX = buildIndex();
 const RENDERERS = {
   home:renderHome, episodes:renderEpisodes, characters:renderCharacters, zones:renderZones,
   songs:renderSongs, curriculum:renderCurriculum, random:renderRandom, calendar:renderCalendar,
-  qc:renderQC, guide:renderGuide, prompts:renderPrompts,
+  growth:renderGrowth, qc:renderQC, guide:renderGuide, prompts:renderPrompts,
 };
 let currentTab = "home";
 function goTab(tab, focusId){
@@ -652,6 +705,8 @@ document.addEventListener("change", e => {
   }
   const qc = e.target.closest("[data-qc]");
   if (qc){ store.set(qc.dataset.qc, qc.checked); renderQC(); }
+  const lc = e.target.closest("[data-launch]");
+  if (lc){ store.set(`launch_${lc.dataset.launch}`, lc.checked); renderGrowth(); }
 });
 
 document.addEventListener("keydown", e => { if (e.key === "Escape" && modalEp) closeModal(); });
