@@ -32,6 +32,8 @@
 | 18 | [system/18-production-guide.md](system/18-production-guide.md) | คู่มือลงมือผลิตทีละขั้น: นำ Prompt ไปใช้ใน AI แต่ละตัว (เว็บไหน กดอะไร เซฟชื่ออะไร) |
 | 19 | [system/19-brand-sound.md](system/19-brand-sound.md) | Brand Sound: เพลงธีมช่อง + เพลงเปิดประตู 9 สี + Jingle ปิด + Signature SFX (ผลิตครั้งเดียว ใช้ทุกตอน) |
 | 20 | [system/20-shorts-system.md](system/20-shorts-system.md) | ระบบ Shorts/TikTok: สูตร 3 ชิ้นต่อตอน (เพลงฮุก/Interaction/มุก-ซึ้ง) + ตารางลง 6 วัน/สัปดาห์ |
+| 21 | [system/21-curriculum-map.md](system/21-curriculum-map.md) | แผนที่หลักสูตร 9 เป้าหมายพัฒนาการ + บันไดทักษะต่อวัย + Coverage Matrix + กฎสมดุล (แสดงผลในเว็บหน้า "พัฒนาการ") |
+| 22 | [system/22-series-planning.md](system/22-series-planning.md) | ระบบวางแผนซีรีส์ 4 ตอน (Mini-Arc) + Template + ไอเดียซีรีส์ตั้งต้น |
 | — | `database/` | ไฟล์ฐานข้อมูลจริง เริ่มกรอกได้ทันที |
 | — | `episodes/` | แพ็กเกจตอนที่สร้างแล้ว (ตอนละ 1 ไฟล์ ครบ 12 ส่วน + Checklist ผลิต) |
 

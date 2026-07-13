@@ -319,6 +319,97 @@ function renderSongs(){
     </table></div>`;
 }
 
+/* ═══ TAB: CURRICULUM ═════════════════════════════════════ */
+function renderCurriculum(){
+  const eps = EPISODES.map(e => e.id);
+  const lvl = (ep, gid) => (EP_SKILLS[ep] && EP_SKILLS[ep][gid]) || 0;
+  // สรุปต่อเป้าหมาย
+  const summary = DEV_GOALS.map(g => {
+    let primary = 0, total = 0, weight = 0;
+    eps.forEach(ep => { const l = lvl(ep, g.id); if (l === 2) primary++; if (l >= 1) total++; weight += l; });
+    return { g, primary, total, weight };
+  });
+  const maxWeight = Math.max(...summary.map(s => s.weight), 1);
+  const gaps = summary.filter(s => s.primary === 0);
+  const acadGaps = ACADEMIC.filter(a => a.eps.length === 0);
+
+  const cell = (ep, gid) => {
+    const l = lvl(ep, gid);
+    const sym = l === 2 ? "●●" : l === 1 ? "●" : "·";
+    const cls = l === 2 ? "hm-2" : l === 1 ? "hm-1" : "hm-0";
+    const title = l === 2 ? "Primary — แกนของตอน" : l === 1 ? "Secondary — แทรกเนียน" : "ไม่ได้เน้น";
+    return `<td class="hm ${cls}" title="${ep} · ${title}"><span>${sym}</span></td>`;
+  };
+
+  $("#tab-curriculum").innerHTML = `
+    <div class="page-head"><h1>📈 แผนที่หลักสูตรพัฒนาการ</h1><p>ทุกตอนพัฒนาทักษะด้านใดบ้าง — ระบบเห็น "ช่องว่าง" แล้วแนะนำว่าตอนหน้าควรเติมอะไร (อ้างอิง system/21)</p></div>
+
+    <div class="hm-legend">
+      <span class="chip"><span class="hm-swatch hm-2"></span> ●● Primary — แกนของตอน</span>
+      <span class="chip"><span class="hm-swatch hm-1"></span> ● Secondary — แทรกเนียน</span>
+      <span class="chip"><span class="hm-swatch hm-0"></span> · ไม่ได้เน้น</span>
+    </div>
+
+    <div class="tbl-wrap" style="margin-bottom:22px">
+      <table class="tbl hm-tbl">
+        <thead><tr>
+          <th style="min-width:150px">เป้าหมายพัฒนาการ</th>
+          ${EPISODES.map(e => `<th class="hm-col" title="${esc(e.title)}">${e.emoji}<br><small>${e.id}</small></th>`).join("")}
+          <th style="min-width:120px">ครอบคลุม</th>
+        </tr></thead>
+        <tbody>
+          ${summary.map(({ g, primary, total, weight }) => `
+            <tr>
+              <td><b style="font-weight:500">${g.emoji} ${esc(g.name)}</b></td>
+              ${eps.map(ep => cell(ep, g.id)).join("")}
+              <td>
+                <div class="progress-row" style="gap:8px">
+                  <div class="progress" style="max-width:70px"><i style="width:${weight / maxWeight * 100}%"></i></div>
+                  <span style="font-size:12px;color:var(--muted)">${total} ตอน${primary === 0 ? ' <span style="color:var(--warn)">·ยังไม่เป็นหลัก</span>' : ""}</span>
+                </div>
+              </td>
+            </tr>`).join("")}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid g2">
+      <div class="card" style="border-left:4px solid var(--warn)">
+        <b>🎯 คิวสร้างถัดไป — เป้าหมายที่ยังไม่เคยเป็น Primary</b>
+        <p style="font-size:12.5px;color:var(--muted);margin:4px 0 10px">กฎสมดุล: ครบทุกเป้าหมายภายใน 8 ตอน (ไฟล์ 21)</p>
+        ${gaps.length ? gaps.map(s => `<div class="beat"><span class="bn">${s.g.emoji}</span><span class="bt"><b style="font-weight:500;color:var(--ink)">${esc(s.g.name)}</b> — แตะแล้ว ${s.total} ตอนแต่ยังเป็นแค่ Secondary</span></div>`).join("")
+          : `<p style="color:var(--good)">✅ ทุกเป้าหมายถูกสอนเป็น Primary แล้ว!</p>`}
+      </div>
+      <div class="card">
+        <b>📚 หมวดวิชาการ (6 หมวดใน 12 ตอน)</b>
+        <p style="font-size:12.5px;color:var(--muted);margin:4px 0 10px">ภาษาอังกฤษ & สุขภาพมักถูกลืม — ระวังเป็นพิเศษ</p>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          ${ACADEMIC.map(a => `<div style="display:flex;align-items:center;gap:8px;font-size:13.5px">
+            <span style="width:22px">${a.emoji}</span>
+            <span style="flex:1">${esc(a.name)}</span>
+            ${a.eps.length
+              ? `<span class="pill done">✓ ${a.eps.join(", ")}</span>`
+              : `<span class="pill now">ยังไม่แตะ</span>`}
+          </div>`).join("")}
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">🪜 บันไดทักษะต่อช่วงวัย (Scope & Sequence)</div>
+    <p style="font-size:12.5px;color:var(--muted);margin:-6px 0 12px">เลือกความยากให้ตรงวัย — สอนสูงไปเด็กงง สอนต่ำไปเด็กเบื่อ</p>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th style="min-width:150px">เป้าหมาย</th><th>2-3 ปี</th><th>4-5 ปี</th><th>6-8 ปี</th><th>9-10 ปี</th></tr></thead>
+        <tbody>
+          ${DEV_GOALS.map(g => `<tr>
+            <td><b style="font-weight:500">${g.emoji} ${esc(g.name)}</b></td>
+            ${g.ladder.map(x => `<td style="font-size:12.5px">${esc(x)}</td>`).join("")}
+          </tr>`).join("")}
+        </tbody>
+      </table>
+    </div>`;
+}
+
 /* ═══ TAB: RANDOMIZER ═════════════════════════════════════ */
 const randState = { locks:{}, value:{} };
 function pickRandom(){
@@ -501,8 +592,8 @@ const SEARCH_INDEX = buildIndex();
 /* ═══ NAVIGATION & EVENTS ═════════════════════════════════ */
 const RENDERERS = {
   home:renderHome, episodes:renderEpisodes, characters:renderCharacters, zones:renderZones,
-  songs:renderSongs, random:renderRandom, calendar:renderCalendar, qc:renderQC,
-  guide:renderGuide, prompts:renderPrompts,
+  songs:renderSongs, curriculum:renderCurriculum, random:renderRandom, calendar:renderCalendar,
+  qc:renderQC, guide:renderGuide, prompts:renderPrompts,
 };
 let currentTab = "home";
 function goTab(tab, focusId){

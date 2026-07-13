@@ -226,6 +226,19 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--
 .tbl td{padding:10px 14px;border-top:1px solid var(--line);vertical-align:top}
 .tbl tr:hover td{background:var(--surface-2)}
 
+/* ══ Curriculum heatmap ══ */
+.hm-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.hm-swatch{width:14px;height:14px;border-radius:4px;display:inline-block;border:1px solid var(--line)}
+.hm-tbl th.hm-col{text-align:center;min-width:56px;font-size:18px;line-height:1.2}
+.hm-tbl td.hm{text-align:center;font-size:13px;padding:8px 6px}
+.hm span{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:9px;font-size:12px;letter-spacing:-1px}
+.hm-0 span{color:var(--muted);background:var(--surface-2)}
+.hm-1 span{color:#fff;background:color-mix(in srgb, var(--brand) 45%, var(--surface))}
+.hm-2 span{color:#fff;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 2px 8px color-mix(in srgb,var(--brand) 30%,transparent)}
+.hm-swatch.hm-0{background:var(--surface-2)}
+.hm-swatch.hm-1{background:color-mix(in srgb, var(--brand) 45%, var(--surface))}
+.hm-swatch.hm-2{background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+
 /* ══ Randomizer ══ */
 .rand-hero{text-align:center;padding:30px 20px}
 .rand-hero .dice{font-size:56px;display:inline-block}
